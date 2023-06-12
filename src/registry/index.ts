@@ -21,13 +21,13 @@ export const categories: Categories = [
     description: "Displays an icon button for a call to action.",
     sourceId: "ActionButton",
   },
-  {
-    id: "select",
-    name: "Select",
-    description:
-      "Displays a list of options for the user to pick from—triggered by a button.",
-    sourceId: "Select",
-  },
+  // {
+  //   id: "select",
+  //   name: "Select",
+  //   description:
+  //     "Displays a list of options for the user to pick from—triggered by a button.",
+  //   sourceId: "Select",
+  // },
   // {
   //   id: "tabs",
   //   name: "Tabs",
