@@ -18,10 +18,10 @@ export const CopyButton = ({ code }: { code: string }) => {
     >
       {clipboard.state === "READY" && <ClipboardCopyIcon className="h-4 w-4" />}
       {clipboard.state === "SUCCESS" && (
-        <CheckIcon className="h-4 w-4 text-green-500" />
+        <CheckIcon className="h-4 w-4 text-green-9" />
       )}
       {clipboard.state === "ERROR" && (
-        <Cross1Icon className="h-4 w-4 text-red-500" />
+        <Cross1Icon className="h-4 w-4 text-red-9" />
       )}
     </ActionButton>
   );

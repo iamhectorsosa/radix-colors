@@ -8,7 +8,7 @@ import {
 
 export default function Preview() {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 @md:flex-row">
+    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 @md:flex-row">
       <Button>Default</Button>
       <Button variant="subtle">Subtle</Button>
       <Button variant="accent">

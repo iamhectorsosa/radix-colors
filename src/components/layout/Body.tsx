@@ -17,7 +17,7 @@ const Body = React.forwardRef<HTMLBodyElement, BodyProps>(
         className={cn(
           className,
           inter.className,
-          "bg-background text-base-12",
+          "bg-background text-foreground",
           theme.color,
           theme.isDark ? "dark-theme" : "light-theme"
         )}

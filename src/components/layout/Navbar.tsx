@@ -10,32 +10,48 @@ import {
 } from "@components/ui/Select";
 import { ColorWheelIcon, SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@components/providers/ThemeProvider";
+import { Switch } from "@components/ui/Switch";
 
-type ColorThemes = "teal" | "indigo" | "pink";
+type ColorThemes = "teal" | "indigo" | "cyan" | "pink" | "plum" | "orange";
 type Themes = "light-theme" | "dark-theme";
 
 export const Navbar = () => {
-  const { theme, setColorTheme, setIsDark } = useTheme();
+  const { theme, setColorTheme, setIsDark, setIsTransparent } = useTheme();
   return (
     <div className="sticky top-0 z-50 flex w-full border-b border-border bg-background px-4 pb-4 pt-8">
       <nav className="mx-auto w-full max-w-5xl">
         <div className="flex justify-end gap-x-2">
+          <div className="flex items-center gap-1.5">
+            <label className="text-sm" htmlFor="transparent-mode">
+              Transparent
+            </label>
+            <Switch
+              checked={theme.isTransparent}
+              onCheckedChange={(v: boolean) => setIsTransparent(v)}
+              id="transparent-mode"
+            />
+          </div>
           <Select
             value={theme.color}
             onValueChange={(v: ColorThemes) => {
               setColorTheme(v);
             }}
           >
-            <SelectTrigger className="w-fit min-w-[150px]">
+            <SelectTrigger className="w-fit md:min-w-[140px]">
               <div className="flex items-center gap-2 pr-2">
-                <ColorWheelIcon className="h-4 w-4" />
-                <SelectValue />
+                <ColorWheelIcon className="h-5 w-5 text-accent-9" />
+                <div className="hidden md:inline-flex">
+                  <SelectValue />
+                </div>
               </div>
             </SelectTrigger>
             <SelectContent align="end">
               <SelectItem value={"teal"}>Teal</SelectItem>
               <SelectItem value={"indigo"}>Indigo</SelectItem>
+              <SelectItem value={"cyan"}>Cyan</SelectItem>
               <SelectItem value={"pink"}>Pink</SelectItem>
+              <SelectItem value={"plum"}>Plum</SelectItem>
+              <SelectItem value={"orange"}>Orange</SelectItem>
             </SelectContent>
           </Select>
           <Select
@@ -47,9 +63,9 @@ export const Navbar = () => {
             <SelectTrigger className="w-fit">
               <div className="flex items-center gap-2 pr-2">
                 {theme.isDark ? (
-                  <MoonIcon className="h-4 w-4" />
+                  <MoonIcon className="h-5 w-5" />
                 ) : (
-                  <SunIcon className="h-4 w-4" />
+                  <SunIcon className="h-5 w-5" />
                 )}
               </div>
             </SelectTrigger>

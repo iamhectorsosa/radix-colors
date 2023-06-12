@@ -16,11 +16,20 @@
 @import "@radix-ui/colors/slateDark.css";
 @import "@radix-ui/colors/indigo.css";
 @import "@radix-ui/colors/indigoDark.css";
+@import "@radix-ui/colors/cyan.css";
+@import "@radix-ui/colors/cyanDark.css";
 
 @import "@radix-ui/colors/mauve.css";
 @import "@radix-ui/colors/mauveDark.css";
 @import "@radix-ui/colors/pink.css";
 @import "@radix-ui/colors/pinkDark.css";
+@import "@radix-ui/colors/plum.css";
+@import "@radix-ui/colors/plumDark.css";
+
+@import "@radix-ui/colors/sand.css";
+@import "@radix-ui/colors/sandDark.css";
+@import "@radix-ui/colors/orange.css";
+@import "@radix-ui/colors/orangeDark.css";
 
 /* UI */
 @import "@radix-ui/colors/red.css";
@@ -36,7 +45,8 @@
 @import "@radix-ui/colors/blueDark.css";
 
 @layer base {
-  .teal {
+  .teal,
+  .teal .dark-theme {
     --base1: var(--sage1);
     --base2: var(--sage2);
     --base3: var(--sage3);
@@ -64,35 +74,10 @@
     --accent12: var(--teal12);
   }
 
-  .teal.dark-theme {
-    --base1: var(--sage1);
-    --base2: var(--sage2);
-    --base3: var(--sage3);
-    --base4: var(--sage4);
-    --base5: var(--sage5);
-    --base6: var(--sage6);
-    --base7: var(--sage7);
-    --base8: var(--sage8);
-    --base9: var(--sage9);
-    --base10: var(--sage10);
-    --base11: var(--sage11);
-    --base12: var(--sage12);
-
-    --accent1: var(--teal1);
-    --accent2: var(--teal2);
-    --accent3: var(--teal3);
-    --accent4: var(--teal4);
-    --accent5: var(--teal5);
-    --accent6: var(--teal6);
-    --accent7: var(--teal7);
-    --accent8: var(--teal8);
-    --accent9: var(--teal9);
-    --accent10: var(--teal10);
-    --accent11: var(--teal11);
-    --accent12: var(--teal12);
-  }
-
-  .indigo {
+  .indigo,
+  .cyan,
+  .indigo .dark-theme,
+  .cyan .dark-theme {
     --base1: var(--slate1);
     --base2: var(--slate2);
     --base3: var(--slate3);
@@ -105,7 +90,10 @@
     --base10: var(--slate10);
     --base11: var(--slate11);
     --base12: var(--slate12);
+  }
 
+  .indigo,
+  .indigo .dark-theme {
     --accent1: var(--indigo1);
     --accent2: var(--indigo2);
     --accent3: var(--indigo3);
@@ -120,35 +108,26 @@
     --accent12: var(--indigo12);
   }
 
-  .indigo.dark-theme {
-    --base1: var(--slate1);
-    --base2: var(--slate2);
-    --base3: var(--slate3);
-    --base4: var(--slate4);
-    --base5: var(--slate5);
-    --base6: var(--slate6);
-    --base7: var(--slate7);
-    --base8: var(--slate8);
-    --base9: var(--slate9);
-    --base10: var(--slate10);
-    --base11: var(--slate11);
-    --base12: var(--slate12);
-
-    --accent1: var(--indigo1);
-    --accent2: var(--indigo2);
-    --accent3: var(--indigo3);
-    --accent4: var(--indigo4);
-    --accent5: var(--indigo5);
-    --accent6: var(--indigo6);
-    --accent7: var(--indigo7);
-    --accent8: var(--indigo8);
-    --accent9: var(--indigo9);
-    --accent10: var(--indigo10);
-    --accent11: var(--indigo11);
-    --accent12: var(--indigo12);
+  .cyan,
+  .cyan .dark-theme {
+    --accent1: var(--cyan1);
+    --accent2: var(--cyan2);
+    --accent3: var(--cyan3);
+    --accent4: var(--cyan4);
+    --accent5: var(--cyan5);
+    --accent6: var(--cyan6);
+    --accent7: var(--cyan7);
+    --accent8: var(--cyan8);
+    --accent9: var(--cyan9);
+    --accent10: var(--cyan10);
+    --accent11: var(--cyan11);
+    --accent12: var(--cyan12);
   }
 
-  .pink {
+  .pink,
+  .pink .dark-theme,
+  .plum,
+  .plum .dark-theme {
     --base1: var(--mauve1);
     --base2: var(--mauve2);
     --base3: var(--mauve3);
@@ -161,7 +140,10 @@
     --base10: var(--mauve10);
     --base11: var(--mauve11);
     --base12: var(--mauve12);
+  }
 
+  .pink,
+  .pink .dark-theme {
     --accent1: var(--pink1);
     --accent2: var(--pink2);
     --accent3: var(--pink3);
@@ -176,32 +158,49 @@
     --accent12: var(--pink12);
   }
 
-  .pink.dark-theme {
-    --base1: var(--mauve1);
-    --base2: var(--mauve2);
-    --base3: var(--mauve3);
-    --base4: var(--mauve4);
-    --base5: var(--mauve5);
-    --base6: var(--mauve6);
-    --base7: var(--mauve7);
-    --base8: var(--mauve8);
-    --base9: var(--mauve9);
-    --base10: var(--mauve10);
-    --base11: var(--mauve11);
-    --base12: var(--mauve12);
+  .plum,
+  .plum .dark-theme {
+    --accent1: var(--plum1);
+    --accent2: var(--plum2);
+    --accent3: var(--plum3);
+    --accent4: var(--plum4);
+    --accent5: var(--plum5);
+    --accent6: var(--plum6);
+    --accent7: var(--plum7);
+    --accent8: var(--plum8);
+    --accent9: var(--plum9);
+    --accent10: var(--plum10);
+    --accent11: var(--plum11);
+    --accent12: var(--plum12);
+  }
 
-    --accent1: var(--pink1);
-    --accent2: var(--pink2);
-    --accent3: var(--pink3);
-    --accent4: var(--pink4);
-    --accent5: var(--pink5);
-    --accent6: var(--pink6);
-    --accent7: var(--pink7);
-    --accent8: var(--pink8);
-    --accent9: var(--pink9);
-    --accent10: var(--pink10);
-    --accent11: var(--pink11);
-    --accent12: var(--pink12);
+  .orange,
+  .orange .dark-theme {
+    --base1: var(--sand1);
+    --base2: var(--sand2);
+    --base3: var(--sand3);
+    --base4: var(--sand4);
+    --base5: var(--sand5);
+    --base6: var(--sand6);
+    --base7: var(--sand7);
+    --base8: var(--sand8);
+    --base9: var(--sand9);
+    --base10: var(--sand10);
+    --base11: var(--sand11);
+    --base12: var(--sand12);
+
+    --accent1: var(--orange1);
+    --accent2: var(--orange2);
+    --accent3: var(--orange3);
+    --accent4: var(--orange4);
+    --accent5: var(--orange5);
+    --accent6: var(--orange6);
+    --accent7: var(--orange7);
+    --accent8: var(--orange8);
+    --accent9: var(--orange9);
+    --accent10: var(--orange10);
+    --accent11: var(--orange11);
+    --accent12: var(--orange12);
   }
 }
 
@@ -232,7 +231,7 @@
 }
 
 .shiki {
-  @apply m-0 w-full rounded-b-md pb-5 text-white shadow-lg;
+  @apply m-0 w-full pb-5 text-white shadow-lg;
 }
 
 .shiki code {

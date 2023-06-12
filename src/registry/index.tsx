@@ -1,12 +1,12 @@
 export const EXAMPLES_DIR = "src/examples";
 export const SOURCE_DIR = "src/components/ui";
 
+import Accordion from "../examples/accordion/Accordion";
 import ActionButtons from "../examples/buttons/ActionButtons";
-import CompactActionButtons from "../examples/buttons/CompactActionButtons";
 import Buttons from "../examples/buttons/Buttons";
 import Select from "../examples/select/Select";
+import Switch from "../examples/switch/Switch";
 import HorizontalTabs from "../examples/tabs/HorizontalTabs";
-import VerticalTabs from "../examples/tabs/VerticalTabs";
 
 type Examples = {
   categoryDir: string;
@@ -22,6 +22,20 @@ type Examples = {
 
 export const examples: Examples = [
   {
+    categoryDir: "accordion",
+    label: "Accordion",
+    description:
+      "A vertically stacked set of interactive headings that each reveal a section of content.",
+    components: [
+      {
+        label: "Accordion",
+        exampleFile: "Accordion.tsx",
+        sourceFile: "Accordion.tsx",
+        preview: <Accordion />,
+      },
+    ],
+  },
+  {
     categoryDir: "buttons",
     label: "Buttons",
     description: "Displays a button or a component that looks like a button.",
@@ -31,12 +45,6 @@ export const examples: Examples = [
         exampleFile: "ActionButtons.tsx",
         sourceFile: "ActionButton.tsx",
         preview: <ActionButtons />,
-      },
-      {
-        label: "Compact Action Buttons",
-        exampleFile: "CompactActionButtons.tsx",
-        sourceFile: "ActionButton.tsx",
-        preview: <CompactActionButtons />,
       },
       {
         label: "Buttons",
@@ -61,6 +69,20 @@ export const examples: Examples = [
     ],
   },
   {
+    categoryDir: "switch",
+    label: "Switch",
+    description:
+      "A control that allows the user to toggle between checked and not checked.",
+    components: [
+      {
+        label: "Switch",
+        exampleFile: "Switch.tsx",
+        sourceFile: "Switch.tsx",
+        preview: <Switch />,
+      },
+    ],
+  },
+  {
     categoryDir: "tabs",
     label: "Tabs",
     description:
@@ -71,12 +93,6 @@ export const examples: Examples = [
         exampleFile: "HorizontalTabs.tsx",
         sourceFile: "Tabs.tsx",
         preview: <HorizontalTabs />,
-      },
-      {
-        label: "Vertical Tabs",
-        exampleFile: "VerticalTabs.tsx",
-        sourceFile: "Tabs.tsx",
-        preview: <VerticalTabs />,
       },
     ],
   },

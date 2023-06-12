@@ -10,10 +10,13 @@ module.exports = {
     extend: {
       colors: {
         background: "var(--base1)",
+        foreground: "var(--base12)",
         border: "var(--base6)",
         hover: "var(--accent3)",
         focus: "var(--accent4)",
         active: "var(--accent5)",
+        unchecked: "var(--accent7)",
+        checked: "var(--accent10)",
         ring: "var(--base8)",
         base: {
           DEFAULT: "var(--base12)",

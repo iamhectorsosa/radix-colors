@@ -14,17 +14,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-base-3 text-base-12 hover:bg-base-4 active:bg-base-5",
+        default: "bg-base-3 text-foreground hover:bg-base-4 active:bg-base-5",
         accent:
           "bg-accent-9 text-accent-1 hover:bg-accent-10 active:bg-accent-11",
-        subtle: "bg-transparent text-base-12 hover:bg-base-4 active:bg-base-5",
+        subtle:
+          "bg-transparent text-foreground hover:bg-base-4 active:bg-base-5",
         info: "bg-blue-9 text-blue-1 hover:bg-blue-10 active:bg-blue-11",
         warning:
           "bg-yellow-9 text-black hover:bg-yellow-10 active:bg-yellow-11",
         danger: "bg-red-9 text-red-1 hover:bg-red-10 active:bg-red-11",
       },
       compact: {
-        true: "px-3 h-7",
+        true: "px-3 h-7 text-xs",
       },
     },
     defaultVariants: {

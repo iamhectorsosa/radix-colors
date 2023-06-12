@@ -1,11 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { CodeIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import { CodeIcon, EyeOpenIcon, PlusIcon } from "@radix-ui/react-icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/Tabs";
 import { CopyButton } from "./CopyButton";
 import { Resizable } from "re-resizable";
 import { cn } from "@utils/cn";
+import { Button } from "./ui/Button";
+import { useTheme } from "./providers/ThemeProvider";
 
 type PreviewProps = {
   label: string;
@@ -23,6 +25,7 @@ type PreviewProps = {
 export const Preview = ({ label, preview, example, source }: PreviewProps) => {
   const [code, setCode] = React.useState("");
   const [expanded, setExpanded] = React.useState(false);
+  const { theme } = useTheme();
 
   return (
     <div className="space-y-3">
@@ -53,47 +56,52 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
               },
             }}
             handleClasses={{
-              right: "hidden sm:flex items-center bg-transparent rounded-r-md",
+              right: "hidden sm:flex items-center bg-transparent",
             }}
             handleComponent={{
-              right: <div className="h-8 w-1.5 rounded-full bg-slate-400" />,
+              right: <div className="h-8 w-1.5 rounded-full bg-base-8" />,
             }}
           >
             <div
               className={cn(
-                "transparent-grid grid min-h-[250px] w-full place-items-center p-4 shadow-sm @container md:p-12"
+                "grid min-h-[350px] w-full place-items-center rounded-lg p-4 shadow-sm @container md:p-12",
+                theme.isTransparent
+                  ? "transparent-grid"
+                  : "bg-gradient-to-tl from-fuchsia-500 from-0% to-blue-500 to-100% saturate-[115%] [&>div]:bg-background"
               )}
             >
               {preview}
             </div>
           </Resizable>
         </TabsContent>
-        <TabsContent className="relative" value="code">
+        <TabsContent className="dark-theme relative" value="code">
           <div
             className={cn(
-              "overflow-hidden rounded-md bg-neutral-900",
-              !expanded && "max-h-[250px]"
+              "overflow-hidden rounded-lg bg-black",
+              !expanded && "max-h-[350px]"
             )}
           >
-            <Tabs defaultValue={example.id}>
-              <div className="flex items-center justify-between px-5 pt-3">
-                <TabsList className="grid w-full bg-neutral-900 sm:inline-flex">
+            <Tabs className="bg-black" defaultValue="preview">
+              <div className="flex items-center justify-between bg-black px-5 pt-3">
+                <TabsList className="grid w-full bg-black sm:inline-flex">
                   <TabsTrigger
-                    value={example.id}
-                    className="px-2.5 py-1.5 text-xs hover:bg-slate-700/50 data-[state=active]:bg-slate-700 data-[state=active]:text-slate-200"
+                    value="preview"
+                    className={cn("px-2.5 py-1.5 text-xs")}
                   >
                     Preview.tsx
                   </TabsTrigger>
                   <TabsTrigger
                     value={source.id}
-                    className="px-2.5 py-1.5 text-xs hover:bg-slate-700/50 data-[state=active]:bg-slate-700 data-[state=active]:text-slate-200"
+                    className="px-2.5 py-1.5 text-xs"
                   >
                     {source.id}
                   </TabsTrigger>
                 </TabsList>
-                <CopyButton code={code} />
+                <div className="hidden sm:inline-flex">
+                  <CopyButton code={code} />
+                </div>
               </div>
-              <TabsContent value={example.id}>
+              <TabsContent value="preview">
                 <div
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
@@ -113,27 +121,18 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
           </div>
           <footer
             className={cn(
-              "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-md bg-gradient-to-t from-slate-900",
-              expanded ? "bg-none pb-0" : "pb-8"
+              "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-lg bg-gradient-to-t from-black",
+              expanded ? "bg-none pb-2" : "pb-8"
             )}
           >
-            <button
+            <Button
+              className="pointer-events-auto"
+              compact={expanded}
               onClick={() => setExpanded(!expanded)}
-              className={cn([
-                expanded
-                  ? "px-2 py-1 text-xs"
-                  : "bg-neutral-200 px-3 py-1.5 text-sm text-neutral-800",
-                "pointer-events-auto rounded-md font-medium",
-                /** Hover styles */
-                expanded
-                  ? "text-white hover:bg-slate-800"
-                  : "hover:bg-neutral-400",
-                /** Focus styles */
-                "focus-visible:ring-dark-400 ring-offset-dark-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-              ])}
             >
+              {!expanded && <PlusIcon />}
               {!expanded ? "Expand" : "Collapse"}
-            </button>
+            </Button>
           </footer>
         </TabsContent>
       </Tabs>

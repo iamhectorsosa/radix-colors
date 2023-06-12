@@ -13,7 +13,7 @@ export default async function Home() {
         {data.map(({ label, description, components }, index) => (
           <article key={index} className="grid grid-cols-1 space-y-2">
             <h2 className="text-3xl font-bold">{label}</h2>
-            <p className="line-clamp-2 pb-4">{description}</p>
+            <p>{description}</p>
             <div className="grid h-fit grid-cols-1 gap-12 py-2">
               {components.map((props, index) => {
                 return <Preview key={index} {...props} />;

@@ -8,7 +8,7 @@ import {
 
 /** ✅ Config */
 const theme: Theme = "dark-plus";
-const bg: React.CSSProperties["backgroundColor"] = "rgb(23 23 23)";
+const bg: React.CSSProperties["backgroundColor"] = "var(--blackA12)";
 const lang: Lang = "tsx";
 
 export async function getHighlighter() {

@@ -5,10 +5,12 @@ import * as React from "react";
 type Theme = {
   color: string;
   isDark: boolean;
+  isTransparent: boolean;
 };
 const defaultTheme: Theme = {
-  color: "teal",
+  color: "cyan",
   isDark: false,
+  isTransparent: false,
 };
 
 const ThemeContext = React.createContext<[Theme, (t: Theme) => void]>([
@@ -31,5 +33,7 @@ export const useTheme = () => {
     theme,
     setColorTheme: (color: Theme["color"]) => setTheme({ ...theme, color }),
     setIsDark: (isDark: Theme["isDark"]) => setTheme({ ...theme, isDark }),
+    setIsTransparent: (isTransparent: Theme["isTransparent"]) =>
+      setTheme({ ...theme, isTransparent }),
   };
 };
