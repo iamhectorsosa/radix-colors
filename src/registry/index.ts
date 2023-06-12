@@ -21,16 +21,16 @@ export const categories: Categories = [
     description: "Come and grab 'em!",
     sourceId: "ActionButton",
   },
-  {
-    id: "select",
-    name: "Select",
-    description: "Come and grab 'em!",
-    sourceId: "Select",
-  },
-  {
-    id: "tabs",
-    name: "Tabs",
-    description: "Come and grab 'em!",
-    sourceId: "Tabs",
-  },
+  // {
+  //   id: "select",
+  //   name: "Select",
+  //   description: "Come and grab 'em!",
+  //   sourceId: "Select",
+  // },
+  // {
+  //   id: "tabs",
+  //   name: "Tabs",
+  //   description: "Come and grab 'em!",
+  //   sourceId: "Tabs",
+  // },
 ];
