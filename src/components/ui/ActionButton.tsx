@@ -22,7 +22,7 @@ const actionButtonVariants = cva(
         danger: "bg-red-3 text-red-11 hover:bg-red-4 active:bg-red-5",
       },
       compact: {
-        true: "px-0.5 py-1 h-6",
+        true: "px-1 py-1 h-7",
       },
     },
     defaultVariants: {

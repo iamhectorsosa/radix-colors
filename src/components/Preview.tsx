@@ -7,19 +7,20 @@ import { CopyButton } from "./CopyButton";
 import { Resizable } from "re-resizable";
 import { cn } from "@utils/cn";
 
-export const Preview = ({
-  id,
-  component,
-  preview,
-  source,
-  sourceId,
-}: {
-  id: string;
-  component: React.ReactNode;
-  preview: string;
-  sourceId: string;
-  source: string;
-}) => {
+type PreviewProps = {
+  label: string;
+  preview: React.ReactNode;
+  example: {
+    id: string;
+    code: string;
+  };
+  source: {
+    id: string;
+    code: string;
+  };
+};
+
+export const Preview = ({ label, preview, example, source }: PreviewProps) => {
   const [code, setCode] = React.useState("");
   const [expanded, setExpanded] = React.useState(false);
 
@@ -27,9 +28,7 @@ export const Preview = ({
     <div className="space-y-3">
       <Tabs defaultValue="preview" orientation="horizontal">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-xl font-semibold">
-            {transformComponentName(id)}
-          </h3>
+          <h3 className="text-xl font-semibold">{label}</h3>
           <TabsList className="rounded-full">
             <TabsTrigger value="preview" className="rounded-full p-2">
               <EyeOpenIcon className="h-4 w-4" />
@@ -65,7 +64,7 @@ export const Preview = ({
                 "transparent-grid grid min-h-[250px] w-full place-items-center p-4 shadow-sm @container md:p-12"
               )}
             >
-              {component}
+              {preview}
             </div>
           </Resizable>
         </TabsContent>
@@ -76,38 +75,38 @@ export const Preview = ({
               !expanded && "max-h-[250px]"
             )}
           >
-            <Tabs defaultValue="preview">
+            <Tabs defaultValue={example.id}>
               <div className="flex items-center justify-between px-5 pt-3">
                 <TabsList className="grid w-full bg-neutral-900 sm:inline-flex">
                   <TabsTrigger
-                    value="preview"
+                    value={example.id}
                     className="px-2.5 py-1.5 text-xs hover:bg-slate-700/50 data-[state=active]:bg-slate-700 data-[state=active]:text-slate-200"
                   >
-                    {id}.tsx
+                    Preview.tsx
                   </TabsTrigger>
                   <TabsTrigger
-                    value="source"
+                    value={source.id}
                     className="px-2.5 py-1.5 text-xs hover:bg-slate-700/50 data-[state=active]:bg-slate-700 data-[state=active]:text-slate-200"
                   >
-                    {sourceId}.tsx
+                    {source.id}
                   </TabsTrigger>
                 </TabsList>
                 <CopyButton code={code} />
               </div>
-              <TabsContent value="preview">
+              <TabsContent value={example.id}>
                 <div
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
                   }}
-                  dangerouslySetInnerHTML={{ __html: preview }}
+                  dangerouslySetInnerHTML={{ __html: example.code }}
                 />
               </TabsContent>
-              <TabsContent value="source">
+              <TabsContent value={source.id}>
                 <div
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
                   }}
-                  dangerouslySetInnerHTML={{ __html: source }}
+                  dangerouslySetInnerHTML={{ __html: source.code }}
                 />
               </TabsContent>
             </Tabs>

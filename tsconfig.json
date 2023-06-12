@@ -22,7 +22,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@registry": ["./src/registry/index.ts"],
+      "@registry": ["./src/registry/index.tsx"],
       "@utils/*": ["./src/utils/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@lib/*": ["./src/lib/*"]
