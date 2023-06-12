@@ -12,25 +12,27 @@ export const categories: Categories = [
   {
     id: "buttons",
     name: "Buttons",
-    description: "Come and grab 'em!",
+    description: "Displays a button or a component that looks like a button.",
     sourceId: "Button",
   },
   {
     id: "actionbuttons",
     name: "Action Buttons",
-    description: "Come and grab 'em!",
+    description: "Displays an icon button for a call to action.",
     sourceId: "ActionButton",
   },
-  // {
-  //   id: "select",
-  //   name: "Select",
-  //   description: "Come and grab 'em!",
-  //   sourceId: "Select",
-  // },
+  {
+    id: "select",
+    name: "Select",
+    description:
+      "Displays a list of options for the user to pick from—triggered by a button.",
+    sourceId: "Select",
+  },
   // {
   //   id: "tabs",
   //   name: "Tabs",
-  //   description: "Come and grab 'em!",
+  //   description:
+  //     "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
   //   sourceId: "Tabs",
   // },
 ];
