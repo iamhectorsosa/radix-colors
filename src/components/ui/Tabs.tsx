@@ -10,10 +10,7 @@ const Tabs = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Root
     ref={ref}
-    className={cn(
-      "data-[orientation=vertical]:grid data-[orientation=vertical]:grid-cols-[1fr_3fr]",
-      className
-    )}
+    className={cn("data-[orientation=vertical]:flex", className)}
     {...props}
   />
 ));
@@ -26,8 +23,11 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex items-center gap-1",
-      "h-fit rounded-lg bg-base-2 p-2",
+      /** Layout */
+      "inline-flex h-fit items-center gap-1 bg-background-3 p-2",
+      /** Borders */
+      "rounded-lg",
+      /** User Interaction */
       "data-[orientation=vertical]:inline-grid",
       className
     )}
@@ -43,12 +43,17 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center",
-      "whitespace-nowrap rounded-lg px-4 py-2",
-      "text-sm font-medium text-foreground",
+      /** Layout */
+      "inline-flex items-center justify-center px-4 py-2",
+      /** Typography */
+      "whitespace-nowrap text-sm font-medium text-foreground",
+      /** Borders */
+      "rounded-lg",
+      /** States */
       "hover:bg-hover",
-      "data-[state=active]:bg-active data-[state=inactive]:text-base-9",
       "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      /** User Interaction */
+      "data-[state=inactive]:text-placeholder data-[state=active]:bg-active",
       "disabled:pointer-events-none disabled:opacity-50",
       className
     )}

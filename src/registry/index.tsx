@@ -7,6 +7,7 @@ import Buttons from "../examples/buttons/Buttons";
 import Select from "../examples/select/Select";
 import Switch from "../examples/switch/Switch";
 import HorizontalTabs from "../examples/tabs/HorizontalTabs";
+import VerticalTabs from "../examples/tabs/VerticalTabs";
 
 type Examples = {
   categoryDir: string;
@@ -93,6 +94,12 @@ export const examples: Examples = [
         exampleFile: "HorizontalTabs.tsx",
         sourceFile: "Tabs.tsx",
         preview: <HorizontalTabs />,
+      },
+      {
+        label: "Vertical Tabs",
+        exampleFile: "VerticalTabs.tsx",
+        sourceFile: "Tabs.tsx",
+        preview: <VerticalTabs />,
       },
     ],
   },

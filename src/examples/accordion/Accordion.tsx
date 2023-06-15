@@ -23,8 +23,10 @@ export default function Preview() {
         <AccordionItem value="item-2">
           <AccordionTrigger>Is it styled?</AccordionTrigger>
           <AccordionContent>
-            Yes. It comes with default styles that matches the other components
-            aesthetic.
+            Yes. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Voluptatibus aspernatur debitis nemo sed temporibus, laboriosam,
+            dolores dolorum dicta id autem delectus sit minus! Quos cumque,
+            soluta sunt nemo incidunt mollitia.
           </AccordionContent>
         </AccordionItem>
       </Accordion>

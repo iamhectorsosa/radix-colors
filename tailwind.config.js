@@ -9,15 +9,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--base1)",
+        background: {
+          DEFAULT: "var(--base1)",
+          1: "var(--base1)",
+          2: "var(--base2)",
+          3: "var(--base3)",
+          4: "var(--base4)",
+        },
         foreground: "var(--base12)",
+        placeholder: "var(--base10)",
         border: "var(--base6)",
-        hover: "var(--accent3)",
+        ring: "var(--base8)",
+        hover: "var(--accent4)",
         focus: "var(--accent4)",
         active: "var(--accent5)",
         unchecked: "var(--accent7)",
         checked: "var(--accent10)",
-        ring: "var(--base8)",
         base: {
           DEFAULT: "var(--base12)",
           1: "var(--base1)",

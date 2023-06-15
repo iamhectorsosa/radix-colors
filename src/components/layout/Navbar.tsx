@@ -37,7 +37,7 @@ export const Navbar = () => {
               setColorTheme(v);
             }}
           >
-            <SelectTrigger className="w-fit md:min-w-[140px]">
+            <SelectTrigger className="min-w-fit md:min-w-[8rem]">
               <div className="flex items-center gap-2 pr-2">
                 <ColorWheelIcon className="h-5 w-5 text-accent-9" />
                 <div className="hidden md:inline-flex">
@@ -60,7 +60,7 @@ export const Navbar = () => {
               setIsDark(v === "dark-theme");
             }}
           >
-            <SelectTrigger className="w-fit">
+            <SelectTrigger>
               <div className="flex items-center gap-2 pr-2">
                 {theme.isDark ? (
                   <MoonIcon className="h-5 w-5" />
