@@ -74,25 +74,25 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
             </div>
           </Resizable>
         </TabsContent>
-        <TabsContent className="dark-theme relative" value="code">
+        <TabsContent className="relative" value="code">
           <div
             className={cn(
-              "overflow-hidden rounded-lg bg-black",
+              "overflow-hidden rounded-lg border border-border",
               !expanded && "max-h-[350px]"
             )}
           >
-            <Tabs className="bg-black" defaultValue="preview">
-              <div className="flex items-center justify-between bg-black px-5 pt-3">
-                <TabsList className="grid w-full bg-black sm:inline-flex">
+            <Tabs className="bg-background" defaultValue="preview">
+              <div className="flex items-center justify-between border-b border-border bg-background px-3 py-2">
+                <TabsList className="bg-transparent px-0 py-0">
                   <TabsTrigger
                     value="preview"
-                    className={cn("px-2.5 py-1.5 text-xs")}
+                    className="px-2.5 hover:bg-transparent data-[state=active]:bg-transparent"
                   >
                     Preview.tsx
                   </TabsTrigger>
                   <TabsTrigger
                     value={source.id}
-                    className="px-2.5 py-1.5 text-xs"
+                    className="px-2.5 hover:bg-transparent data-[state=active]:bg-transparent"
                   >
                     {source.id}
                   </TabsTrigger>
@@ -101,7 +101,10 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
                   <CopyButton code={code} />
                 </div>
               </div>
-              <TabsContent value="preview">
+              <TabsContent
+                className="data-[orientation=horizontal]:mt-5"
+                value="preview"
+              >
                 <div
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
@@ -109,7 +112,10 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
                   dangerouslySetInnerHTML={{ __html: example.code }}
                 />
               </TabsContent>
-              <TabsContent value={source.id}>
+              <TabsContent
+                className="data-[orientation=horizontal]:mt-5"
+                value={source.id}
+              >
                 <div
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
@@ -121,7 +127,7 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
           </div>
           <footer
             className={cn(
-              "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-lg bg-gradient-to-t from-black",
+              "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-lg bg-gradient-to-t from-background",
               expanded ? "bg-none pb-2" : "pb-8"
             )}
           >

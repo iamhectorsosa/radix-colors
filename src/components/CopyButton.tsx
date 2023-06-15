@@ -1,11 +1,7 @@
 "use client";
 
 import { useClipboard } from "@hooks/useClipboard";
-import {
-  ClipboardCopyIcon,
-  CheckIcon,
-  Cross1Icon,
-} from "@radix-ui/react-icons";
+import { CopyIcon, CheckIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { ActionButton } from "./ui/ActionButton";
 
 export const CopyButton = ({ code }: { code: string }) => {
@@ -14,9 +10,9 @@ export const CopyButton = ({ code }: { code: string }) => {
     <ActionButton
       variant="subtle"
       onClick={() => clipboard.copy(code)}
-      className="h-fit rounded-full p-2 text-sm"
+      className="h-fit p-2 text-sm"
     >
-      {clipboard.state === "READY" && <ClipboardCopyIcon className="h-4 w-4" />}
+      {clipboard.state === "READY" && <CopyIcon className="h-4 w-4" />}
       {clipboard.state === "SUCCESS" && (
         <CheckIcon className="h-4 w-4 text-green-9" />
       )}

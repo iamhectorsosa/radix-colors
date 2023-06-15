@@ -7,8 +7,8 @@ import {
 } from "shiki";
 
 /** ✅ Config */
-const theme: Theme = "dark-plus";
-const bg: React.CSSProperties["backgroundColor"] = "var(--blackA12)";
+const theme: Theme = "css-variables";
+const bg: React.CSSProperties["backgroundColor"] = "transparent";
 const lang: Lang = "tsx";
 
 export async function getHighlighter() {
