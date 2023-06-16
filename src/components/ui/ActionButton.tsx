@@ -37,13 +37,13 @@ const actionButtonVariants = cva(
   }
 );
 
-export interface ButtonProps
+interface ActionButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof actionButtonVariants> {
   asChild?: boolean;
 }
 
-const ActionButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const ActionButton = React.forwardRef<HTMLButtonElement, ActionButtonProps>(
   ({ className, variant, compact, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (

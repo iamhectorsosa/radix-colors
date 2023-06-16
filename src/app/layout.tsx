@@ -2,6 +2,7 @@ import "./globals.css";
 import { ThemeProvider } from "@components/providers/ThemeProvider";
 import { Body } from "@components/layout/Body";
 import { Navbar } from "@components/layout/Navbar";
+import { TooltipProvider } from "@components/ui/Tooltip";
 
 export const metadata = {
   title: "Create Next App",
@@ -16,12 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <Body>
-          <Navbar />
-          <main className="mx-auto grid min-h-screen w-full max-w-4xl px-4 py-8">
-            {children}
-          </main>
-        </Body>
+        <TooltipProvider>
+          <Body>
+            <Navbar />
+            <main className="mx-auto grid min-h-screen w-full max-w-4xl px-4 py-8">
+              {children}
+            </main>
+          </Body>
+        </TooltipProvider>
       </ThemeProvider>
     </html>
   );

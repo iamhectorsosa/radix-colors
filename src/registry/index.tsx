@@ -71,7 +71,7 @@ export const examples: Examples = [
   },
   {
     categoryDir: "switch",
-    label: "Switch",
+    label: "Switch with Tooltip Label",
     description:
       "A control that allows the user to toggle between checked and not checked.",
     components: [
