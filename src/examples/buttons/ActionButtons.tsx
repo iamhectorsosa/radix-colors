@@ -1,34 +1,82 @@
+"use client";
+
+import * as React from "react";
 import { ActionButton } from "@components/ui/ActionButton";
 import {
-  HamburgerMenuIcon,
-  ClipboardCopyIcon,
   PlusIcon,
   InfoCircledIcon,
   ExclamationTriangleIcon,
   Cross2Icon,
 } from "@radix-ui/react-icons";
+import {
+  MotionValue,
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 export default function Preview() {
+  const mouseX = useMotionValue(Infinity);
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 @md:flex-row">
-      <ActionButton>
-        <HamburgerMenuIcon className="h-5 w-5" />
-      </ActionButton>
-      <ActionButton variant="subtle">
-        <ClipboardCopyIcon className="h-5 w-5" />
-      </ActionButton>
+    <motion.div
+      onMouseMove={(e) => mouseX.set(e.pageX)}
+      onMouseLeave={() => mouseX.set(Infinity)}
+      className="flex min-h-[120px] w-full items-center justify-center gap-2 p-6"
+    >
       <ActionButton variant="accent">
-        <PlusIcon className="h-5 w-5" />
+        <ButtonMotion mouseX={mouseX}>
+          <PlusIcon className="h-full w-full" />
+        </ButtonMotion>
       </ActionButton>
       <ActionButton variant="info">
-        <InfoCircledIcon className="h-5 w-5" />
+        <ButtonMotion mouseX={mouseX}>
+          <InfoCircledIcon className="h-full w-full" />
+        </ButtonMotion>
       </ActionButton>
       <ActionButton variant="warning">
-        <ExclamationTriangleIcon className="h-5 w-5" />
+        <ButtonMotion mouseX={mouseX}>
+          <ExclamationTriangleIcon className="h-full w-full" />
+        </ButtonMotion>
       </ActionButton>
       <ActionButton variant="danger">
-        <Cross2Icon className="h-5 w-5" />
+        <ButtonMotion mouseX={mouseX}>
+          <Cross2Icon className="h-full w-full" />
+        </ButtonMotion>
       </ActionButton>
-    </div>
+    </motion.div>
   );
 }
+
+const ButtonMotion = ({
+  mouseX,
+  children,
+}: {
+  mouseX: MotionValue;
+  children: React.ReactNode;
+}) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  const distance = useTransform(mouseX, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+
+    return val - bounds.x - bounds.width / 2;
+  });
+
+  const widthSync = useTransform(distance, [-100, 0, 100], [20, 40, 20]);
+  const width = useSpring(widthSync, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ width }}
+      className="flex items-center justify-center"
+    >
+      {children}
+    </motion.div>
+  );
+};

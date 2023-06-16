@@ -6,7 +6,7 @@ import { cn } from "@utils/cn";
 const actionButtonVariants = cva(
   [
     /** Layout */
-    "inline-flex items-center justify-center px-2 h-9",
+    "inline-flex items-center justify-center px-2 py-2 aspect-square",
     /** Typography */
     "font-medium",
     /** Borders */
@@ -28,7 +28,7 @@ const actionButtonVariants = cva(
         danger: "bg-red-3 text-red-11 hover:bg-red-4 active:bg-red-5",
       },
       compact: {
-        true: "px-1 h-7",
+        true: "px-1 py-1",
       },
     },
     defaultVariants: {

@@ -16,9 +16,18 @@ export default function Preview() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="account">
-          Make changes to your account here.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut enim
+          numquam, ratione laborum ducimus cupiditate, eligendi ea fugit
+          quibusdam aut ipsum consequatur possimus eum voluptatum omnis ab
+          soluta obcaecati qui!
         </TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent>
+
+        <TabsContent value="password">
+          Change your password here. Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Ut enim numquam, ratione laborum ducimus cupiditate,
+          eligendi ea fugit quibusdam aut ipsum consequatur possimus eum
+          voluptatum omnis ab soluta obcaecati qui!
+        </TabsContent>
       </Tabs>
     </div>
   );

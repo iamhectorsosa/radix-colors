@@ -14,7 +14,7 @@ export default function Preview() {
   return (
     <div className="w-full p-6">
       <Accordion
-        type={"multiple"}
+        type="single"
         value={state}
         className="w-full"
         onValueChange={(v) => setState(v)}
@@ -22,7 +22,7 @@ export default function Preview() {
         {data.map(({ id, title, content }) => (
           <AccordionItem key={id} value={id}>
             <AccordionTrigger>{title}</AccordionTrigger>
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {state?.includes(id) && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
@@ -56,7 +56,7 @@ export default function Preview() {
   );
 }
 
-const defaultValue = ["item-t"];
+const defaultValue = "item-1";
 const data = [
   {
     id: "item-1",
@@ -67,6 +67,12 @@ const data = [
     id: "item-2",
     title: "Is it styled?",
     content:
-      "Yes. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aspernatur debitis nemo sed temporibus, laboriosam, dolores dolorum dicta id autem delectus sit minus! Quos cumque, soluta sunt nemo incidunt mollitia.",
+      "Yes. It comes with default styles that matches the other components' aesthetic.",
+  },
+  {
+    id: "item-3",
+    title: "Is it animated?",
+    content:
+      "No. It isn't animated by default, but you can bring your own animations if you need.",
   },
 ];
