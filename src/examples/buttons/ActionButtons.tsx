@@ -44,6 +44,11 @@ export default function Preview() {
           <Cross2Icon className="h-full w-full" />
         </ButtonMotion>
       </ActionButton>
+      <ActionButton variant="ghost">
+        <ButtonMotion mouseX={mouseX}>
+          <Cross2Icon className="h-full w-full" />
+        </ButtonMotion>
+      </ActionButton>
     </motion.div>
   );
 }

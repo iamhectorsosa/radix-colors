@@ -8,6 +8,7 @@ import Select from "../examples/select/Select";
 import Switch from "../examples/switch/Switch";
 import HorizontalTabs from "../examples/tabs/HorizontalTabs";
 import VerticalTabs from "../examples/tabs/VerticalTabs";
+import Toast from "../examples/toast/Toast";
 
 type Examples = {
   categoryDir: string;
@@ -100,6 +101,19 @@ export const examples: Examples = [
         exampleFile: "VerticalTabs.tsx",
         sourceFile: "Tabs.tsx",
         preview: <VerticalTabs />,
+      },
+    ],
+  },
+  {
+    categoryDir: "toast",
+    label: "Toasts",
+    description: "A succinct message that is displayed temporarily.",
+    components: [
+      {
+        label: "Default Toasts",
+        exampleFile: "Toast.tsx",
+        sourceFile: "Toast.tsx",
+        preview: <Toast />,
       },
     ],
   },

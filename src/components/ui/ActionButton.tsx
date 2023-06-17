@@ -26,6 +26,7 @@ const actionButtonVariants = cva(
         info: "bg-blue-3 text-blue-11 hover:bg-blue-4 active:bg-blue-5",
         warning: "bg-yellow-3 text-yellow-11 hover:bg-yellow-4",
         danger: "bg-red-3 text-red-11 hover:bg-red-4 active:bg-red-5",
+        ghost: "bg-transparent text-base-11 hover:bg-black-4 active:bg-black-5",
       },
       compact: {
         true: "px-1 py-1",
