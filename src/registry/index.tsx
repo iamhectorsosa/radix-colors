@@ -4,6 +4,7 @@ export const SOURCE_DIR = "src/components/ui";
 import Accordion from "../examples/accordion/Accordion";
 import ActionButtons from "../examples/buttons/ActionButtons";
 import Buttons from "../examples/buttons/Buttons";
+import Form from "../examples/inputs/Form";
 import Select from "../examples/select/Select";
 import Switch from "../examples/switch/Switch";
 import HorizontalTabs from "../examples/tabs/HorizontalTabs";
@@ -53,6 +54,20 @@ export const examples: Examples = [
         exampleFile: "Buttons.tsx",
         sourceFile: "Button.tsx",
         preview: <Buttons />,
+      },
+    ],
+  },
+  {
+    categoryDir: "inputs",
+    label: "Inputs",
+    description:
+      "Displays a form input field or a component that looks like an input field.",
+    components: [
+      {
+        label: "Form Inputs",
+        exampleFile: "Form.tsx",
+        sourceFile: "Input.tsx",
+        preview: <Form />,
       },
     ],
   },

@@ -11,7 +11,7 @@ import {
 
 export default function Preview() {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 @md:flex-row">
+    <div className="flex w-full max-w-lg items-center justify-center p-6">
       <Select defaultValue={defaultValue}>
         <SelectTrigger className="min-w-[8rem]">
           <SelectValue />

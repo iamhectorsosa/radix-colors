@@ -3,7 +3,7 @@ import { Switch } from "@components/ui/Switch";
 
 export default function Preview() {
   return (
-    <div className="flex w-full items-center justify-center space-x-2 p-6">
+    <div className="flex w-full max-w-lg items-center justify-center gap-2 p-6">
       <Switch id="airplane-mode" />
       <Label
         className="text-sm"

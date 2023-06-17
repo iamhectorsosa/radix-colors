@@ -64,7 +64,7 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
           >
             <div
               className={cn(
-                "flex min-h-[350px] w-full items-center justify-center rounded-lg p-4 shadow-sm @container md:p-12",
+                "flex min-h-[350px] w-full items-center justify-center rounded-lg p-4 shadow-sm md:p-12",
                 theme.isTransparent
                   ? "transparent-grid"
                   : "bg-[hsla(289,74%,35%,1)] [background-image:radial-gradient(at_91%_72%,hsla(262,97%,60%,1)_0px,_transparent_50%),radial-gradient(at_83%_5%,hsla(255,85%,77%,1)_0px,_transparent_50%),radial-gradient(at_90%_37%,hsla(256,98%,74%,1)_0px,_transparent_50%),radial-gradient(at_59%_90%,hsla(264,94%,66%,1)_0px,_transparent_50%),radial-gradient(at_10%_40%,hsla(247,92%,70%,1)_0px,_transparent_50%),radial-gradient(at_25%_62%,hsla(319,96%,65%,1)_0px,_transparent_50%)] [&>div]:bg-background"

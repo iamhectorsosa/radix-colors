@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 export default function Preview() {
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 @md:flex-row">
+    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 md:flex-row">
       <Button asChild>
         <motion.button whileTap={{ scale: 0.95 }}>Default</motion.button>
       </Button>

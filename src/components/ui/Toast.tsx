@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { VariantProps, cva } from "cva";
@@ -65,6 +67,7 @@ const ToastClose = React.forwardRef<
     ref={ref}
     className={cn("absolute right-2 top-2", className)}
     toast-close=""
+    asChild
     {...props}
   >
     <ActionButton

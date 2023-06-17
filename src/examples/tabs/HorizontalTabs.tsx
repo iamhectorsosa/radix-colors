@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/Tabs";
 import { PersonIcon, LockClosedIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import useMeasure from "react-use-measure";
+import Form from "../inputs/Form";
 
 const transition = { type: "ease", ease: "easeInOut", duration: 0.4 };
 
@@ -13,7 +14,7 @@ export default function Preview() {
   const [tab, setTab] = React.useState(defaultTab);
   const currentTab = tabs.find(({ id }) => id === tab);
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 @md:flex-row">
+    <div className="flex w-full max-w-lg  items-center justify-center p-6">
       <Tabs value={tab} onValueChange={(v) => setTab(v)} className="w-full">
         <TabsList>
           {tabs.map(({ id, label }) => (
@@ -62,8 +63,11 @@ const tabs = [
         Account
       </>
     ),
-    content:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut enim numquam, ratione laborum ducimus cupiditate.",
+    content: (
+      <div className="[&>div]:p-0">
+        <Form />
+      </div>
+    ),
   },
   {
     id: "password",

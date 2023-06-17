@@ -13,7 +13,7 @@ export default function Preview() {
   const [tab, setTab] = React.useState(defaultTab);
   const currentTab = tabs.find(({ id }) => id === tab);
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 p-6 @md:flex-row">
+    <div className="flex w-full items-center justify-center p-6">
       <Tabs
         orientation="vertical"
         value={tab}
@@ -31,7 +31,7 @@ export default function Preview() {
           animate={{ height: bounds.height }}
           transition={{ type: "spring", bounce: 0.2, duration: 0.8 }}
         >
-          <div ref={ref}>
+          <div ref={ref} className="overflow-hidden">
             <AnimatePresence initial={false} mode="wait">
               {currentTab && (
                 <motion.div
