@@ -8,7 +8,7 @@ type Theme = {
   isTransparent: boolean;
 };
 const defaultTheme: Theme = {
-  color: "cyan",
+  color: "plum",
   isDark: false,
   isTransparent: false,
 };

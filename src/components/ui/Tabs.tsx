@@ -53,7 +53,7 @@ const TabsTrigger = React.forwardRef<
       "hover:bg-hover",
       "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
       /** User Interaction */
-      "data-[state=inactive]:text-placeholder data-[state=active]:bg-active",
+      "data-[state=active]:bg-active data-[state=inactive]:text-placeholder",
       "disabled:pointer-events-none disabled:opacity-50",
       className
     )}

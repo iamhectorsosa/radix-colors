@@ -11,6 +11,7 @@ import {
 import { ColorWheelIcon, SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@components/providers/ThemeProvider";
 import { Switch } from "@components/ui/Switch";
+import { Label } from "@components/ui/Label";
 
 type ColorThemes = "teal" | "indigo" | "cyan" | "pink" | "plum" | "orange";
 type Themes = "light-theme" | "dark-theme";
@@ -21,10 +22,10 @@ export const Navbar = () => {
     <div className="sticky top-0 z-50 flex w-full border-b border-border bg-background px-4 pb-4 pt-8">
       <nav className="mx-auto w-full max-w-5xl">
         <div className="flex justify-end gap-x-2">
-          <div className="flex items-center gap-1.5">
-            <label className="text-sm" htmlFor="transparent-mode">
+          <div className="flex items-center gap-2">
+            <Label className="text-sm font-normal" htmlFor="transparent-mode">
               Transparent
-            </label>
+            </Label>
             <Switch
               checked={theme.isTransparent}
               onCheckedChange={(v: boolean) => setIsTransparent(v)}

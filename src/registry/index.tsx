@@ -73,7 +73,7 @@ export const examples: Examples = [
     categoryDir: "switch",
     label: "Switch with Tooltip Label",
     description:
-      "A control that allows the user to toggle between checked and not checked.",
+      "A control that allows the user to toggle between checked and not checked. (Note: container queries are messing with layout)",
     components: [
       {
         label: "Switch",
@@ -90,13 +90,13 @@ export const examples: Examples = [
       "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
     components: [
       {
-        label: "Horizontal Tabs",
+        label: "Animated Horizontal Tabs",
         exampleFile: "HorizontalTabs.tsx",
         sourceFile: "Tabs.tsx",
         preview: <HorizontalTabs />,
       },
       {
-        label: "Vertical Tabs",
+        label: "Animated Vertical Tabs",
         exampleFile: "VerticalTabs.tsx",
         sourceFile: "Tabs.tsx",
         preview: <VerticalTabs />,

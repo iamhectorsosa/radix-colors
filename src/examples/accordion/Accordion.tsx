@@ -10,39 +10,29 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Preview() {
-  const [state, setState] = React.useState(defaultValue);
+  const [current, setCurrent] = React.useState(defaultValue);
   return (
     <div className="w-full p-6">
       <Accordion
         type="single"
-        value={state}
+        value={current}
         className="w-full"
-        onValueChange={(v) => setState(v)}
+        onValueChange={(v) => setCurrent(v)}
       >
         {data.map(({ id, title, content }) => (
           <AccordionItem key={id} value={id}>
             <AccordionTrigger>{title}</AccordionTrigger>
             <AnimatePresence initial={false}>
-              {state?.includes(id) && (
+              {current?.includes(id) && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{
                     opacity: 1,
                     height: "auto",
-                    transition: {
-                      opacity: { delay: 0.2 },
-                      height: { duration: 0.1 },
-                      ease: "easeIn",
-                    },
                   }}
                   exit={{
                     opacity: 0,
                     height: 0,
-                    transition: {
-                      opacity: { duration: 0.1 },
-                      height: { delay: 0.2 },
-                      ease: "easeInOut",
-                    },
                   }}
                 >
                   <AccordionContent forceMount>{content}</AccordionContent>
@@ -73,6 +63,6 @@ const data = [
     id: "item-3",
     title: "Is it animated?",
     content:
-      "No. It isn't animated by default, but you can bring your own animations if you need.",
+      "No. It isn't animated by default, but you can bring your own animations if you need. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, ratione quod? Dolore laboriosam ipsa rerum praesentium, reprehenderit consectetur, fugiat quae fugit quam quibusdam, iure sequi maxime vel officia cumque minima!",
   },
 ];
