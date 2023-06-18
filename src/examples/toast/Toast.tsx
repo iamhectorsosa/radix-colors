@@ -7,7 +7,7 @@ import { type Toast as ToastType, useToast } from "@hooks/useToast";
 import { motion } from "framer-motion";
 
 export default function Preview() {
-  const { toasts, toast } = useToast();
+  const { toast } = useToast();
   return (
     <div className="flex w-full max-w-lg items-center justify-center gap-3 p-6">
       <Button onClick={() => toast(defaultToast)} asChild>

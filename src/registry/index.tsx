@@ -5,6 +5,10 @@ import Accordion from "../examples/accordion/Accordion";
 import ActionButtons from "../examples/buttons/ActionButtons";
 import Buttons from "../examples/buttons/Buttons";
 import Form from "../examples/inputs/Form";
+import Checkboxes from "../examples/inputs/Checkboxes";
+import RadioGroup from "../examples/inputs/RadioGroup";
+import RadioGroupCustom from "../examples/inputs/RadioGroupCustom";
+import Sliders from "../examples/inputs/Sliders";
 import Select from "../examples/select/Select";
 import Switch from "../examples/switch/Switch";
 import HorizontalTabs from "../examples/tabs/HorizontalTabs";
@@ -68,6 +72,30 @@ export const examples: Examples = [
         exampleFile: "Form.tsx",
         sourceFile: "Input.tsx",
         preview: <Form />,
+      },
+      {
+        label: "Checkboxes",
+        exampleFile: "Checkboxes.tsx",
+        sourceFile: "Checkbox.tsx",
+        preview: <Checkboxes />,
+      },
+      {
+        label: "Radio Group",
+        exampleFile: "RadioGroup.tsx",
+        sourceFile: "RadioGroup.tsx",
+        preview: <RadioGroup />,
+      },
+      {
+        label: "Custom Radio Group",
+        exampleFile: "RadioGroupCustom.tsx",
+        sourceFile: "RadioGroup.tsx",
+        preview: <RadioGroupCustom />,
+      },
+      {
+        label: "Sliders",
+        exampleFile: "Sliders.tsx",
+        sourceFile: "Slider.tsx",
+        preview: <Sliders />,
       },
     ],
   },

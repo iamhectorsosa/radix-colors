@@ -71,20 +71,6 @@ export default function Preview() {
             )}
           </div>
         </div>
-        <div>
-          <Label htmlFor="slider">Energy</Label>
-          <Slider
-            className="py-2"
-            id="slider"
-            defaultValue={[5]}
-            max={10}
-            step={1}
-          />
-        </div>
-        <div className="flex gap-2">
-          <Checkbox id="space" defaultChecked={true} />
-          <Label htmlFor="space">Space</Label>
-        </div>
       </div>
       <div className="flex justify-end gap-2">
         <Button>
