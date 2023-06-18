@@ -23,7 +23,14 @@ const Slider = React.forwardRef<
     </SliderPrimitive.Track>
     <SliderPrimitive.Thumb
       className={cn(
-        "block rounded-full bg-checked ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+        /** Layout */
+        "block bg-checked ",
+        /** Borders */
+        "rounded-full",
+        /** States */
+        "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        /** User Interaction */
+        "disabled:pointer-events-none disabled:opacity-50",
         compact ? "h-3.5 w-3.5" : "h-5 w-5"
       )}
     />

@@ -26,7 +26,16 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        "h-4 w-4 rounded-full border border-border text-foreground ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        /** Layout */
+        "h-4 w-4",
+        /** Typography */
+        "text-foreground",
+        /** Borders */
+        "rounded-full border border-border",
+        /** States */
+        "ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        /** User Interaction */
+        "disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -47,7 +56,15 @@ const RadioGroupItemCustom = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        "grid aspect-video place-items-center gap-1 rounded-lg p-1.5 ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&_svg]:data-[state=unchecked]:fill-transparent [&_svg]:data-[state=unchecked]:text-transparent",
+        /** Layout */
+        "flex aspect-video flex-col items-center justify-center gap-2 p-2",
+        /** Borders */
+        "rounded-lg",
+        /** States */
+        "ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        /** User Interaction */
+        " disabled:cursor-not-allowed disabled:opacity-50",
+        "[&_svg]:data-[state=unchecked]:fill-transparent [&_svg]:data-[state=unchecked]:text-transparent",
         className
       )}
       {...props}

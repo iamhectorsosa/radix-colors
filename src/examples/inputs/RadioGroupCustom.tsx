@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
-import { CheckIcon } from "@radix-ui/react-icons";
+import { CheckCircledIcon, CheckIcon } from "@radix-ui/react-icons";
 import { cn } from "@utils/cn";
 
 export default function Preview() {
@@ -17,24 +17,17 @@ export default function Preview() {
           <RadioGroupItemCustom
             key={key}
             aria-label={label}
-            className="relative border border-border bg-transparent md:p-4"
+            className="relative w-full border border-border bg-transparent"
             value={className}
           >
-            <svg
-              width="50"
-              height="50"
-              viewBox="0 0 50 50"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute inset-0 h-full w-full scale-75 fill-active md:scale-50"
-            >
-              <circle cx="25" cy="25" r="25" />
-            </svg>
+            <CheckIcon
+              aria-hidden={true}
+              className="absolute left-0 top-0 h-7 w-7 text-checked"
+            />
             <div
               className={cn(
-                "relative flex h-full flex-col items-center justify-center rounded border border-dashed border-placeholder",
-                className,
-                className === "aspect-auto" && "w-fit px-4"
+                "relative flex max-h-[80%] flex-col items-center justify-center rounded border border-dashed border-placeholder p-2",
+                className
               )}
             >
               <p className="text-xs font-semibold leading-[0] text-foreground md:text-sm">
