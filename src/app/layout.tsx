@@ -19,16 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <TooltipProvider>
-          <Body>
+        <Body>
+          <TooltipProvider>
             <ToastProvider>
               <Navbar />
               <main className="mx-auto grid min-h-screen w-full max-w-4xl px-4 py-8">
                 {children}
               </main>
             </ToastProvider>
-          </Body>
-        </TooltipProvider>
+          </TooltipProvider>
+        </Body>
       </ThemeProvider>
     </html>
   );

@@ -64,7 +64,7 @@ export default function Preview() {
                   }
                 }}
                 variant="subtle"
-                className="px-3"
+                className="px-3 hover:bg-red-10 hover:text-red-1 active:bg-red-11"
               >
                 Remove
               </Button>
