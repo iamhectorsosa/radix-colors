@@ -1,12 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Button } from "@components/ui/Button";
-import { Input } from "@components/ui/Input";
 import { Label } from "@components/ui/Label";
-import { Cross2Icon, CheckIcon } from "@radix-ui/react-icons";
 import { Slider } from "@components/ui/Slider";
-import { Checkbox } from "@components/ui/Checkbox";
 
 export default function Preview() {
   return (

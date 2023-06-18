@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
-import { CheckCircledIcon, CheckIcon } from "@radix-ui/react-icons";
+import { CheckIcon } from "@radix-ui/react-icons";
 import { cn } from "@utils/cn";
 
 export default function Preview() {
