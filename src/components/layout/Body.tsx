@@ -19,7 +19,7 @@ const Body = React.forwardRef<HTMLBodyElement, BodyProps>(
           inter.className,
           "bg-background text-foreground",
           theme.color,
-          theme.isDark ? "dark-theme" : "light-theme"
+          theme.isDark ? "dark-theme dark" : "light-theme"
         )}
         ref={ref}
         {...props}

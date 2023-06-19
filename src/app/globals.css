@@ -45,6 +45,14 @@
 @import "@radix-ui/colors/blueDark.css";
 
 @layer base {
+  :root {
+    --navbar: 250 250 250;
+  }
+
+  :root .dark-theme {
+    --navbar: 20 20 20;
+  }
+
   .teal,
   .teal .dark-theme {
     --base1: var(--sage1);

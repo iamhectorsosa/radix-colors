@@ -12,16 +12,53 @@ import { ColorWheelIcon, SunIcon, MoonIcon } from "@radix-ui/react-icons";
 import { useTheme } from "@components/providers/ThemeProvider";
 import { Switch } from "@components/ui/Switch";
 import { Label } from "@components/ui/Label";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 type ColorThemes = "teal" | "indigo" | "cyan" | "pink" | "plum" | "orange";
 type Themes = "light-theme" | "dark-theme";
 
+const clamp = (number: number, min: number, max: number) =>
+  Math.min(Math.max(number, min), max);
+
+const useBoundedScroll = (bounds: number) => {
+  let { scrollY } = useScroll();
+  let scrollYBounded = useMotionValue(0);
+  let scrollYProgress = useTransform(scrollYBounded, [0, bounds], [0, 1]);
+
+  React.useEffect(() => {
+    return scrollY.on("change", (current) => {
+      let previous = scrollY.getPrevious();
+      let diff = current - previous;
+      let newScrollYBounded = scrollYBounded.get() + diff;
+
+      scrollYBounded.set(clamp(newScrollYBounded, 0, bounds));
+    });
+  }, [bounds, scrollY, scrollYBounded]);
+
+  return { scrollYProgress };
+};
+
 export const Navbar = () => {
   const { theme, setColorTheme, setIsDark, setIsTransparent } = useTheme();
+  const { scrollYProgress } = useBoundedScroll(500);
+  const height = useTransform(scrollYProgress, [0, 0.85, 1], [100, 100, 55]);
+  const opacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 1, 0.85]);
+
   return (
-    <div className="sticky top-0 z-50 flex w-full border-b border-border bg-background px-4 pb-4 pt-8">
-      <nav className="mx-auto w-full max-w-5xl">
-        <div className="flex justify-end gap-x-2">
+    <motion.div
+      style={{
+        backgroundColor: useMotionTemplate`rgb(var(--navbar) / ${opacity}`,
+      }}
+      className="sticky top-0 z-50 flex w-full items-center px-4 shadow backdrop-blur-md "
+    >
+      <motion.nav style={{ height }} className="mx-auto w-full max-w-5xl">
+        <div className="flex h-full items-center justify-end gap-x-2">
           <div className="flex items-center gap-2">
             <Label className="text-sm font-normal" htmlFor="transparent-mode">
               Transparent
@@ -76,7 +113,7 @@ export const Navbar = () => {
             </SelectContent>
           </Select>
         </div>
-      </nav>
-    </div>
+      </motion.nav>
+    </motion.div>
   );
 };

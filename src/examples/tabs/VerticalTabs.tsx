@@ -6,8 +6,6 @@ import { PersonIcon, LockClosedIcon } from "@radix-ui/react-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import useMeasure from "react-use-measure";
 
-const transition = { type: "ease", ease: "easeInOut", duration: 0.4 };
-
 export default function Preview() {
   let [ref, bounds] = useMeasure();
   const [tab, setTab] = React.useState(defaultTab);
@@ -29,19 +27,20 @@ export default function Preview() {
         </TabsList>
         <motion.div
           animate={{ height: bounds.height }}
-          transition={{ type: "spring", bounce: 0.2, duration: 0.8 }}
+          transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
         >
-          <div ref={ref} className="overflow-hidden">
+          <div ref={ref}>
             <AnimatePresence initial={false} mode="wait">
               {currentTab && (
                 <motion.div
                   key={currentTab.id}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{
-                    ...transition,
-                    duration: transition.duration / 2,
-                    delay: transition.duration / 2,
+                    type: "ease",
+                    ease: "easeInOut",
+                    duration: 0.2,
                   }}
                 >
                   <TabsContent forceMount value={currentTab.id}>
