@@ -36,12 +36,7 @@ const TabbedPre = ({ codeBlocks }: TabbedPreProps) => {
 
   return (
     <>
-      <div
-        className={cn(
-          "overflow-hidden rounded-lg border border-border pb-5",
-          !expanded && "max-h-[350px]"
-        )}
-      >
+      <div className={cn("pb-5", !expanded && "max-h-[350px]")}>
         <Tabs className="bg-background" defaultValue={codeBlocks[0].id}>
           <div className="flex items-center justify-between border-b border-border bg-background px-3 py-2">
             <TabsList className="bg-transparent px-0 py-0">
