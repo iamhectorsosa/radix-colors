@@ -38,7 +38,11 @@ const TabbedPre = ({ codeBlocks, maxHeight }: TabbedPreProps) => {
   return (
     <div className="relative">
       <div
-        className="overflow-hidden rounded-lg border border-border"
+        className={cn(
+          maxHeight
+            ? "overflow-hidden rounded-lg border border-border"
+            : "border border-border"
+        )}
         style={{
           maxHeight: !expanded ? maxHeight : undefined,
         }}
@@ -79,7 +83,7 @@ const TabbedPre = ({ codeBlocks, maxHeight }: TabbedPreProps) => {
       {maxHeight && (
         <footer
           className={cn(
-            "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-lg bg-gradient-to-t from-background",
+            "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center bg-gradient-to-t from-background",
             expanded ? "bg-none pb-2" : "pb-8"
           )}
         >

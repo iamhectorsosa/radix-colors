@@ -5,7 +5,7 @@ import { getHighlighter, highlight } from "@lib/shiki";
 export default async function Preview() {
   const code = await getCode();
   return (
-    <div className="h-full w-full overflow-hidden rounded-lg">
+    <div className="h-full w-full p-4">
       <TabbedPre
         maxHeight={300}
         codeBlocks={[

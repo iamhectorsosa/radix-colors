@@ -5,8 +5,10 @@ import { getHighlighter, highlight } from "@lib/shiki";
 export default async function Preview() {
   const code = await getCode();
   return (
-    <div className="h-full w-full overflow-x-scroll rounded-lg border border-border pb-3 pt-4">
-      <Pre htmlCode={code} />
+    <div className="h-full w-full p-4">
+      <div className="overflow-x-scroll rounded-lg border border-border pb-3 pt-4">
+        <Pre htmlCode={code} />
+      </div>
     </div>
   );
 }
