@@ -4,6 +4,8 @@ export const SOURCE_DIR = "src/components/ui";
 import Accordion from "../examples/accordion/Accordion";
 import ActionButtons from "../examples/buttons/ActionButtons";
 import Buttons from "../examples/buttons/Buttons";
+import Pre from "../examples/code/Pre";
+import TabbedPre from "../examples/code/TabbedPre";
 import Form from "../examples/inputs/Form";
 import Checkboxes from "../examples/inputs/Checkboxes";
 import RadioGroup from "../examples/inputs/RadioGroup";
@@ -58,6 +60,25 @@ export const examples: Examples = [
         exampleFile: "Buttons.tsx",
         sourceFile: "Button.tsx",
         preview: <Buttons />,
+      },
+    ],
+  },
+  {
+    categoryDir: "code",
+    label: "Code",
+    description: "Everything related to code,",
+    components: [
+      {
+        label: "Code Blocks",
+        exampleFile: "Pre.tsx",
+        sourceFile: "Pre.tsx",
+        preview: <Pre />,
+      },
+      {
+        label: "Code Blocks with Tabs",
+        exampleFile: "TabbedPre.tsx",
+        sourceFile: "Pre.tsx",
+        preview: <TabbedPre />,
       },
     ],
   },

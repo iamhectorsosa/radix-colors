@@ -8,6 +8,7 @@ import { Resizable } from "re-resizable";
 import { cn } from "@utils/cn";
 import { Button } from "./ui/Button";
 import { useTheme } from "./providers/ThemeProvider";
+import { Pre } from "./ui/Pre";
 
 type PreviewProps = {
   label: string;
@@ -77,7 +78,7 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
         <TabsContent className="relative" value="code">
           <div
             className={cn(
-              "overflow-hidden rounded-lg border border-border",
+              "overflow-hidden rounded-lg border border-border pb-5",
               !expanded && "max-h-[350px]"
             )}
           >
@@ -105,22 +106,22 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
                 className="data-[orientation=horizontal]:mt-5"
                 value="preview"
               >
-                <div
+                <Pre
+                  htmlCode={example.code}
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
                   }}
-                  dangerouslySetInnerHTML={{ __html: example.code }}
                 />
               </TabsContent>
               <TabsContent
                 className="data-[orientation=horizontal]:mt-5"
                 value={source.id}
               >
-                <div
+                <Pre
+                  htmlCode={source.code}
                   ref={(node) => {
                     node?.textContent && setCode(node.textContent);
                   }}
-                  dangerouslySetInnerHTML={{ __html: source.code }}
                 />
               </TabsContent>
             </Tabs>
@@ -144,12 +145,4 @@ export const Preview = ({ label, preview, example, source }: PreviewProps) => {
       </Tabs>
     </div>
   );
-};
-
-const transformComponentName = (componentName: string): string => {
-  const transformedName = componentName
-    .replace(/([a-z])([A-Z])/g, "$1 $2") // Insert space between lowercase and uppercase letters
-    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2"); // Insert space between uppercase letters followed by lowercase letter
-
-  return transformedName;
 };

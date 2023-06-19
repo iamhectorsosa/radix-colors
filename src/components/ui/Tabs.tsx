@@ -70,7 +70,7 @@ const TabsContent = React.forwardRef<
     ref={ref}
     tabIndex={-1}
     className={cn(
-      "overflow-hidden ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[orientation=horizontal]:mt-3 data-[orientation=vertical]:ml-3",
+      "ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[orientation=horizontal]:mt-3 data-[orientation=vertical]:ml-3",
       className
     )}
     {...props}

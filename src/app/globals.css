@@ -266,10 +266,6 @@
   background-position: 0px 0px, 12.5px 0px, 12.5px -12.5px, 0px 12.5px;
 }
 
-.shiki {
-  @apply m-0 w-full pb-5;
-}
-
 .shiki code {
   @apply grid;
 }
