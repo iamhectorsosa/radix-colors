@@ -23,6 +23,7 @@ const Pre = React.forwardRef<React.ElementRef<"div">, PreProps>(
 Pre.displayName = "Pre";
 
 type TabbedPreProps = {
+  maxHeight?: number;
   codeBlocks: {
     id: string;
     label: string;
@@ -30,13 +31,18 @@ type TabbedPreProps = {
   }[];
 };
 
-const TabbedPre = ({ codeBlocks }: TabbedPreProps) => {
+const TabbedPre = ({ codeBlocks, maxHeight }: TabbedPreProps) => {
   const [code, setCode] = React.useState("");
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(!maxHeight);
 
   return (
-    <>
-      <div className={cn("pb-5", !expanded && "max-h-[350px]")}>
+    <div className="relative">
+      <div
+        className="overflow-hidden rounded-lg border border-border"
+        style={{
+          maxHeight: !expanded ? maxHeight : undefined,
+        }}
+      >
         <Tabs className="bg-background" defaultValue={codeBlocks[0].id}>
           <div className="flex items-center justify-between border-b border-border bg-background px-3 py-2">
             <TabsList className="bg-transparent px-0 py-0">
@@ -57,7 +63,7 @@ const TabbedPre = ({ codeBlocks }: TabbedPreProps) => {
           {codeBlocks.map(({ id, htmlCode }) => (
             <TabsContent
               key={id}
-              className="data-[orientation=horizontal]:mt-5"
+              className="overflow-x-scroll pb-5 data-[orientation=horizontal]:mt-5"
               value={id}
             >
               <Pre
@@ -70,22 +76,24 @@ const TabbedPre = ({ codeBlocks }: TabbedPreProps) => {
           ))}
         </Tabs>
       </div>
-      <footer
-        className={cn(
-          "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-lg bg-gradient-to-t from-background",
-          expanded ? "bg-none pb-2" : "pb-8"
-        )}
-      >
-        <Button
-          className="pointer-events-auto"
-          compact={expanded}
-          onClick={() => setExpanded(!expanded)}
+      {maxHeight && (
+        <footer
+          className={cn(
+            "pointer-events-none absolute inset-0 flex h-full w-full items-end justify-center rounded-lg bg-gradient-to-t from-background",
+            expanded ? "bg-none pb-2" : "pb-8"
+          )}
         >
-          {!expanded && <PlusIcon />}
-          {!expanded ? "Expand" : "Collapse"}
-        </Button>
-      </footer>
-    </>
+          <Button
+            className="pointer-events-auto"
+            compact={expanded}
+            onClick={() => setExpanded(!expanded)}
+          >
+            {!expanded && <PlusIcon />}
+            {!expanded ? "Expand" : "Collapse"}
+          </Button>
+        </footer>
+      )}
+    </div>
   );
 };
 
